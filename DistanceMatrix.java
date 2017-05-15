@@ -11,11 +11,12 @@ public class DistanceMatrix {
         Scanner scanner = new Scanner(System.in);
         PrintWriter printWriter = new PrintWriter(System.out);
 
-        int verticeCount = 3;
+        int verticeCount = 4;
         int[][] arr = {
-                {0, 1, 1},
-                {1, 0, 0},
-                {1, 0, 0}
+                {0, 1, 1, 1},
+                {1, 0, 0, 0},
+                {1, 0, 0, 1},
+                {1, 0, 1, 0}
         };
         /*Scanner in = new Scanner(System.in);
         System.out.print("Введите количество строк массива: ");
@@ -44,22 +45,20 @@ public class DistanceMatrix {
                 if (adjacencyMatrix[i][j] == 0){
                     adjacencyMatrix[i][j] = INF;
                 }
+                printWriter.println(adjacencyMatrix[i][j]+" ");
             }
         }
 
         for (int k = 0; k < verticeCount; k++) {
             for (int i = 0; i < verticeCount; i++) {
                 for (int j = 0; j < verticeCount; j++) {
-                    if (adjacencyMatrix[i][j]!=0) {
-                        adjacencyMatrix[i][j] = Math.min(adjacencyMatrix[i][j], adjacencyMatrix[i][k] + adjacencyMatrix[k][j]);
-                        printWriter.print(adjacencyMatrix[i][j]);
-                    } else {
-                        adjacencyMatrix[i][j]=INF;
-                    }
+                        adjacencyMatrix[i][j] = /*Math.min(adjacencyMatrix[i][j], */adjacencyMatrix[i][k] + adjacencyMatrix[k][j];//);
+                    printWriter.print(adjacencyMatrix[i][j]);
                 }
-
             }
+
         }
+
 
 
         // Для каждой пары вершин выведем величину
